@@ -14,7 +14,11 @@ let db;
 
 const url = "mongodb://localhost:27017";
 
-MongoClient.connect(url, { useUnifiedTopology: true }, (err, client) => {
+MongoClient.connect(url, { connectTimeoutMS: 5000,
+    socketTimeoutMS: 5000,
+    useUnifiedTopology: true,
+    useNewUrlParser: true,
+    serverSelectionTimeoutMS: 5000, }, (err, client) => {
   if (err) {
     return console.log(err);
   }
