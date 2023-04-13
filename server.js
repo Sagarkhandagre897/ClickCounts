@@ -20,7 +20,10 @@ MongoClient.connect(url, { useUnifiedTopology: true }, (err, client) => {
   }
   db = client.db("ClickCounts");
   // start the express web server listening on 8080
-  app.listen(8080, () => {
+
+  const PORT  = process.env.PORT || 8080;
+
+  app.listen(PORT  , () => {
     console.log("listening on 8080");
   });
 });
